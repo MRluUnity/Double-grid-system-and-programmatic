@@ -1,0 +1,49 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://1dgisdoxgmcj"]
+
+[ext_resource type="Texture2D" uid="uid://7s3vs3wplgea" path="res://char.png" id="1_xfsiw"]
+[ext_resource type="Texture2D" uid="uid://cldutgxxwhu6l" path="res://grass_and_dirt.png" id="2_3lguu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hck7"]
+texture = ExtResource("1_xfsiw")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xpf7x"]
+texture = ExtResource("2_3lguu")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[resource]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_3hck7")
+sources/1 = SubResource("TileSetAtlasSource_xpf7x")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=4 uid="uid://cj2masn2iidm0"]
+
+[ext_resource type="TileSet" uid="uid://1dgisdoxgmcj" path="res://tile_set_1.tres" id="1_r4i5o"]
+[ext_resource type="Script" path="res://char_map_layer.gd" id="2_hdp5e"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayerGroup" type="Node2D" parent="."]
+
+[node name="CharMapLayer" type="TileMapLayer" parent="TileMapLayerGroup"]
+tile_map_data = PackedByteArray("AAD7//3/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD7//7/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAABAAAAAAA=")
+tile_set = ExtResource("1_r4i5o")
+script = ExtResource("2_hdp5e")
+
+[node name="DisplayMapLayer" type="TileMapLayer" parent="TileMapLayerGroup"]
+position = Vector2(128, 128)
+tile_set = ExtResource("1_r4i5o")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-625, -508)
+zoom = Vector2(0.5, 0.5)
