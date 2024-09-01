@@ -34,7 +34,11 @@ const grass_and_drit = {
 func _ready() -> void:
 	for coord : Vector2i in get_used_cells():
 		set_display_tile(coord)
-		
+
+func set_tile(coords : Vector2i, atlas_coords : Vector2i) -> void:
+	set_cell(coords, 0, atlas_coords)
+	set_display_tile(coords)
+
 func set_display_tile(pos : Vector2i) -> void:
 	for i in FOUR_CELLS:
 		var new_pos : Vector2i = pos + i

@@ -51,7 +51,11 @@ script = ExtResource("2_hdp5e")
 position = Vector2(128, 128)
 tile_set = ExtResource("1_r4i5o")
 
+[node name="PropTileMapLayer" type="TileMapLayer" parent="TileMapLayerGroup"]
+tile_set = ExtResource("1_r4i5o")
+
 [node name="Player" parent="." instance=ExtResource("3_bqiwb")]
+unique_name_in_owner = true
 position = Vector2(-608, -538)
 
 [node name="Camera" type="Camera2D" parent="Player"]
@@ -88,3 +92,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 96)
+offset_right = 8.0
+offset_bottom = 8.0
+text = "刷新地图
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="TileMapLayerGroup" method="_on_button_pressed"]

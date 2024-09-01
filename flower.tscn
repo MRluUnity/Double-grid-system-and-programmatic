@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0f110da0wwl1"]
+
+[ext_resource type="Texture2D" uid="uid://nyu5wx4hkobr" path="res://Flower1.png" id="1_alt6l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvwl5"]
+radius = 33.2415
+
+[node name="Flower" type="StaticBody2D"]
+
+[node name="Flower1" type="Sprite2D" parent="."]
+texture = ExtResource("1_alt6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, 46)
+shape = SubResource("CircleShape2D_gvwl5")

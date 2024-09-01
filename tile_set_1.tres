@@ -1,7 +1,9 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://1dgisdoxgmcj"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://1dgisdoxgmcj"]
 
 [ext_resource type="Texture2D" uid="uid://7s3vs3wplgea" path="res://char.png" id="1_xfsiw"]
 [ext_resource type="Texture2D" uid="uid://cldutgxxwhu6l" path="res://grass_and_dirt.png" id="2_3lguu"]
+[ext_resource type="PackedScene" uid="uid://c0f110da0wwl1" path="res://flower.tscn" id="3_c0fip"]
+[ext_resource type="PackedScene" uid="uid://bhcgba6ca6kdf" path="res://tree.tscn" id="4_wbys5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hck7"]
 texture = ExtResource("1_xfsiw")
@@ -43,7 +45,12 @@ texture_region_size = Vector2i(256, 256)
 2:3/0 = 0
 3:3/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mnwxa"]
+scenes/1/scene = ExtResource("3_c0fip")
+scenes/2/scene = ExtResource("4_wbys5")
+
 [resource]
 tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_3hck7")
 sources/1 = SubResource("TileSetAtlasSource_xpf7x")
+sources/2 = SubResource("TileSetScenesCollectionSource_mnwxa")
