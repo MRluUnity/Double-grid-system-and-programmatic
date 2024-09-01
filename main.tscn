@@ -1,11 +1,46 @@
-[gd_scene load_steps=3 format=4 uid="uid://cj2masn2iidm0"]
+[gd_scene load_steps=13 format=4 uid="uid://cj2masn2iidm0"]
 
+[ext_resource type="Script" path="res://tile_map_layer_group.gd" id="1_qam3i"]
 [ext_resource type="TileSet" uid="uid://1dgisdoxgmcj" path="res://tile_set_1.tres" id="1_r4i5o"]
 [ext_resource type="Script" path="res://char_map_layer.gd" id="2_hdp5e"]
+[ext_resource type="PackedScene" uid="uid://cyykyyfvm4rt7" path="res://player.tscn" id="3_bqiwb"]
+[ext_resource type="Script" path="res://camera.gd" id="4_04k7y"]
+[ext_resource type="Script" path="res://cursor.gd" id="5_oq3er"]
+[ext_resource type="Texture2D" uid="uid://b1wecbcaqp3db" path="res://icon.png" id="5_qdhjo"]
+[ext_resource type="Shader" path="res://grid.gdshader" id="7_j2ksw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv6ys"]
+atlas = ExtResource("5_qdhjo")
+region = Rect2(0, 0, 136, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3wyo"]
+atlas = ExtResource("5_qdhjo")
+region = Rect2(136, 0, 136, 136)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1d2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv6ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3wyo")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pav68"]
+shader = ExtResource("7_j2ksw")
+shader_parameter/gridSize = 256.0
+shader_parameter/gridWidth = 5.0
+shader_parameter/colorLine = Color(0.286275, 0.760784, 1, 0.356863)
 
 [node name="Main" type="Node2D"]
 
 [node name="TileMapLayerGroup" type="Node2D" parent="."]
+script = ExtResource("1_qam3i")
 
 [node name="CharMapLayer" type="TileMapLayer" parent="TileMapLayerGroup"]
 tile_map_data = PackedByteArray("AAD7//3/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD7//7/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAABAAAAAAA=")
@@ -16,6 +51,40 @@ script = ExtResource("2_hdp5e")
 position = Vector2(128, 128)
 tile_set = ExtResource("1_r4i5o")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-625, -508)
-zoom = Vector2(0.5, 0.5)
+[node name="Player" parent="." instance=ExtResource("3_bqiwb")]
+position = Vector2(-608, -538)
+
+[node name="Camera" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = ExtResource("4_04k7y")
+
+[node name="Cursor" type="Node2D" parent="."]
+script = ExtResource("5_oq3er")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cursor"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_n1d2f")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.494738
+
+[node name="Grid" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_pav68")
+custom_minimum_size = Vector2(1344, 1344)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -672.0
+offset_top = -672.0
+offset_right = 672.0
+offset_bottom = 672.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

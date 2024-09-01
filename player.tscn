@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyykyyfvm4rt7"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_pjjqq"]
+[ext_resource type="Script" path="res://deer_polygon.gd" id="2_t57al"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_pjjqq")
+
+[node name="DeerPolygon" type="Polygon2D" parent="."]
+color = Color(9.62615e-07, 0.603902, 0.68892, 1)
+polygon = PackedVector2Array(128, 0, 90.5097, 90.5097, 7.83748e-15, 128, -90.5097, 90.5097, -128, 1.5675e-14, -90.5097, -90.5097, -2.35124e-14, -128, 90.5097, -90.5097)
+script = ExtResource("2_t57al")
+polygon_edge = 8
+polygon_length = 128.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(128, 0, 90.5097, 90.5097, 7.83748e-15, 128, -90.5097, 90.5097, -128, 1.5675e-14, -90.5097, -90.5097, -2.35124e-14, -128, 90.5097, -90.5097)
